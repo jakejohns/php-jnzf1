@@ -1,0 +1,112 @@
+<?php
+/**
+ * Mac
+ *
+ * PHP version 5
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @category  Mac
+ * @package   View
+ * @author    Jake Johns <jake@jakejohns.net>
+ * @copyright 2014 Jake Johns
+ * @license   http://www.gnu.org/licenses/gpl-3.0.txt GPL V3
+ * @link      http://jakejohns.net
+ */
+
+
+$this->headTitle('Sections');
+
+$this->headMeta()->appendName('robots', 'noindex');
+
+$this->entities->setItemCountPerPage(30);
+$this->entities->setCurrentPageNumber($this->page);
+
+
+$pattern = '<tr>'
+    . str_repeat('<td>%s</td>', 3)
+    . '</tr>';
+
+$table = '';
+
+foreach ($this->entities as $ent) {
+
+    $actions = $this->admin(
+        array(
+            'update' => array(
+                'text' => 'Update', 
+                'icon' => 'edit',
+                'resource' => 'section',
+                'privilege' => 'update'
+            ),
+        ),
+        array('controller' => 'section', 'id' => $ent->uid)
+    );
+
+    if ($ent->uri) {
+        $uid = sprintf(
+            '<a href="%s">%s</a>',
+            $ent->uri,
+            $ent->uid
+        );
+    } else {
+        $uid = $ent->uid;
+    }
+
+    $table .= sprintf(
+        $pattern,
+        $uid,
+        substr(strip_tags($ent->section), 0, 255) . '&hellip;',
+        $actions
+    );
+}
+
+
+if ($table) {
+    $table = '<div class="table-responsive">'
+        . '<table class="table table-bordered table-hover">'
+        . '<thead><tr>'
+        . '<th>Slug</th>'
+        . '<th>Excerpt</th>'
+        . '<th>Actions</th>'
+        . '</tr></thead>'
+        . '<tbody>'
+        .  $table
+        . '</tbody>'
+        . '</table>'
+        . '</div>';
+}
+
+
+
+?>
+
+
+<div class="page-header">
+    <h1>Sections</h1>
+</div>
+
+
+<div class="lead">
+    <p>Here you can manage various content snippets which appear through out the
+    site. In addition, when you are authenticated, administrative controls will
+    be displayed where ever these sections are used. </p> 
+</div>
+
+
+<?php echo $table; ?>
+
+<?php echo $this->entities; ?>
+
+

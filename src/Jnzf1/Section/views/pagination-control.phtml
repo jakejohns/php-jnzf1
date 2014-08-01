@@ -1,0 +1,71 @@
+<?php
+/**
+ * Twitter Bootstrap Pagination
+ *
+ * PHP version 5
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @category  Application
+ * @package   View
+ * @author    Jake Johns <jake@jakejohns.net>
+ * @copyright 2013 Jake Johns
+ * @license   http://www.gnu.org/licenses/gpl-3.0.txt GPL V3
+ * @link      http://jakejohns.net
+ */
+
+
+/**
+ *  See http://developer.yahoo.com/ypatterns/pattern.php?pattern=searchpagination
+ */
+
+
+if (! $this->pageCount) {
+    return;
+}
+
+$pattern = '<li class="%s"><a href="%s">%s</a></li>' . "\n";
+
+echo '<ul class="navigation pagination pagination-sm">' . "\n";
+
+echo sprintf(
+    $pattern,
+    'page-previous' . (isset($this->previous) ? '':' disabled'),
+    (isset($this->previous) ? $this->url(array('page' => $this->previous)):'#'),
+    '&laquo;'
+);
+
+
+foreach ($this->pagesInRange as $page) {
+    $active = ($page == $this->current);
+    echo sprintf(
+        $pattern,
+        'page-number' . (($active) ? ' active' : ''), 
+        (($active) ? '#':$this->url(array('page' => $page))),
+        $page
+    );
+}
+
+echo sprintf(
+    $pattern,
+    'page-next' . (isset($this->next) ? '':' disabled'),
+    (isset($this->next) ? $this->url(array('page' => $this->next)):'#'),
+    '&raquo;'
+);
+
+echo '</ul>';
+
+
+
+

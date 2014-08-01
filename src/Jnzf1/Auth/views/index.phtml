@@ -1,0 +1,93 @@
+<?php
+/**
+ * Jnzf1
+ *
+ * PHP version 5
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @category  Jnzf1
+ * @package   View
+ * @author    Jake Johns <jake@jakejohns.net>
+ * @copyright 2014 Jake Johns
+ * @license   http://www.gnu.org/licenses/gpl-3.0.txt GPL V3
+ * @link      http://jakejohns.net
+ */
+
+
+$this->headTitle('Manage Users');
+
+
+$pattern = '<tr><th>%s</th>'
+    . str_repeat('<td>%s</td>', 3)
+    . '</tr>';
+
+$rows = '';
+foreach ($this->users as $user) {
+    $url = $this->url(
+        array(
+            'controller' => 'authentication',
+            'action' => 'update',
+            'id' => $user->uid
+        ),
+        'default',
+        true
+    );
+    $link = sprintf(
+        '<a href="%s"><span class="glyphicon glyphicon-edit"></a></a>',
+        $url
+    );
+    $rows .= sprintf(
+        $pattern,
+        $user->uid,
+        $user->email,
+        $user->role,
+        $link
+    );
+}
+
+
+?>
+
+
+<div class="page-header">
+    <h1>Manage Users</h1>
+</div>
+
+<ul class="nav nav-pills">
+<li><a href="/authentication/create"><span class="glyphicon
+glyphicon-plus">&nbsp;</span>Create User</a></li>
+</ul>
+
+<div class="table-responsive">
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>UID</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php echo $rows; ?>
+        </tbody>
+    </table>
+</div>
+
+ <?php echo $this->users; ?>
+
+
+
+

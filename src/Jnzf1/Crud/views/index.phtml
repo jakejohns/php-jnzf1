@@ -1,0 +1,154 @@
+<?php
+/**
+ * LKMI Learn index
+ *
+ * PHP version 5
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @category  LKMI
+ * @package   View
+ * @author    Jake Johns <jake@jakejohns.net>
+ * @copyright 2014 Jake Johns
+ * @license   http://www.gnu.org/licenses/gpl-3.0.txt GPL V3
+ * @link      http://jakejohns.net
+ */
+
+
+$this->headTitle('Learn');
+
+
+$actions = $this->admin(
+    array('create' => array(
+        'text' => 'Add Content', 
+        'icon' => 'plus',
+        'resource' => 'document',
+        'privilege' => 'create'
+    )),
+    array('controller' => 'learn')
+);
+
+
+
+?>
+
+
+<?php echo $actions; ?>
+
+<div class="page-header">
+    <h1>Learn <small>about lake michigan</small></h1>
+
+<div class="btn-group">
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Topics
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#">Dropdown link</a></li>
+            <li><a href="#">Dropdown link</a></li>
+        </ul>
+    </div>
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Categories
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#">Dropdown link</a></li>
+            <li><a href="#">Dropdown link</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="lead">
+    <p>Dolor sed explicabo nostrum praesentium quae porro ratione officia.
+    Magnam earum recusandae quo enim voluptatem odio quo? Reiciendis fugiat
+    exercitationem sapiente nihil eveniet voluptatibus. Adipisci repellendus
+    vitae officia libero quasi?</p>
+</div>
+
+
+
+<div class="media">
+  <a class="pull-left" href="#">
+    <img class="media-object" src="http://placehold.it/64" alt="...">
+  </a>
+  <div class="media-body">
+    <h2 class="media-heading">Media heading</h2>
+    <p> Amet quidem voluptas beatae eaque nihil ratione ex error, nulla delectus
+    explicabo. Dolorem porro repudiandae ab consequatur voluptate enim, eos
+    velit! Suscipit assumenda quaerat illum corrupti fuga exercitationem
+    ratione! Perspiciatis?  </p>
+    <div class="labels">
+        <a href="#"><span class="label label-default">Category</span></a>
+        <a href="#"><span class="label label-default">Topcic</span></a>
+    </div>
+  </div>
+</div>
+
+
+<div class="media">
+  <a class="pull-left" href="#">
+    <img class="media-object" src="http://placehold.it/64" alt="...">
+  </a>
+  <div class="media-body">
+    <h2 class="media-heading">Media heading</h2>
+    <p> Amet quidem voluptas beatae eaque nihil ratione ex error, nulla delectus
+    explicabo. Dolorem porro repudiandae ab consequatur voluptate enim, eos
+    velit! Suscipit assumenda quaerat illum corrupti fuga exercitationem
+    ratione! Perspiciatis?  </p>
+    <div class="labels">
+        <span class="label label-default">Category</span>
+        <span class="label label-default">Topcic</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="media">
+  <a class="pull-left" href="#">
+    <img class="media-object" src="http://placehold.it/64" alt="...">
+  </a>
+  <div class="media-body">
+    <h2 class="media-heading">Media heading</h2>
+    <p> Amet quidem voluptas beatae eaque nihil ratione ex error, nulla delectus
+    explicabo. Dolorem porro repudiandae ab consequatur voluptate enim, eos
+    velit! Suscipit assumenda quaerat illum corrupti fuga exercitationem
+    ratione! Perspiciatis?  </p>
+    <div class="labels">
+        <span class="label label-default">Category</span>
+        <span class="label label-default">Topcic</span>
+    </div>
+  </div>
+</div>
+
+
+<ul class="pagination">
+  <li><a href="#">&laquo;</a></li>
+  <li><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#">&raquo;</a></li>
+</ul>
+
