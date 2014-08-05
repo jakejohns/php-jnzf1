@@ -66,7 +66,7 @@ class View extends \Zend_Application_Resource_View
                     'ZendX/JQuery/View/Helper/',
                     'ZendX_JQuery_View_Helper'
                 )->addHelperPath(
-                    'Jnzf1/View/Helper',
+                    APPLICATION_PATH . '/../vendor/jnj/jnzf1/src/Jnzf1/View/Helper',
                     'Jnzf1\View\Helper'
                 )->addHelperPath(
                     APPLICATION_PATH . '/views/helpers/',
