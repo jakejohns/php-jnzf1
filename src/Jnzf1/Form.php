@@ -84,8 +84,22 @@ class Form extends \Twitter_Bootstrap_Form_Horizontal
             'ZendX/JQuery/Form/Decorator'
         );
 
-        $this->setLabelColSize(2);
-        $this->setFieldColSize(8);
+        if (isset($options['labelColSize'])) {
+            $labelColSize = $options['labelColSize'];
+            unset($options['labelColSize']);
+        } else {
+            $labelColSize = 2;
+        }
+
+        if (isset($options['fieldColSize'])) {
+            $fieldColSize = $options['fieldColSize'];
+            unset($options['fieldColSize']);
+        } else {
+            $fieldColSize = 8;
+        }
+
+        $this->setLabelColSize($labelColSize);
+        $this->setFieldColSize($fieldColSize);
         parent::__construct($options);
     }
 
