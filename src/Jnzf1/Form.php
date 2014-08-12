@@ -71,18 +71,22 @@ class Form extends \Twitter_Bootstrap_Form_Horizontal
             'element'
         )->addPrefixPath(
             'Jnzf1\Form',
-            'Jnzf1/Form'
+            APPLICATION_PATH . '/../vendor/jnj/jnzf1/src/Jnzf1/Form/'
+        )->addPrefixPath(
+            'Jnzf1\Validate',
+            APPLICATION_PATH . '/../vendor/jnj/jnzf1/src/Jnzf1/Validate/'
         )->addElementPrefixPath(
             'ZendX_JQuery_Form_Decorator',
             'ZendX/JQuery/Form/Decorator',
             'decorator'
         )->addElementPrefixPath(
             'Jnzf1\\',
-            'Jnzf1'
+            APPLICATION_PATH . '/../vendor/jnj/jnzf1/src/Jnzf1/'
         )->addDisplayGroupPrefixPath(
             'ZendX_JQuery_Form_Decorator',
             'ZendX/JQuery/Form/Decorator'
         );
+
 
         if (isset($options['labelColSize'])) {
             $labelColSize = $options['labelColSize'];
