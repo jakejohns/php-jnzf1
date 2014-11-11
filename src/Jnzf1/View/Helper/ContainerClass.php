@@ -61,7 +61,7 @@ class ContainerClass extends \Zend_View_Helper_Abstract
     */
     public function add($class)
     {
-        if (!in_array($class, $this->_extra)) {
+        if (!in_array($class, $this->extra)) {
             $this->extra[] = $class;
         }
         return $this;
