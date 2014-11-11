@@ -70,8 +70,8 @@ class DatePattern extends \Zend_View_Helper_HtmlElement
             return 'null';
         }
 
-        if (! $date instanceof Zend_Date) {
-            throw new Exception('invalid date');
+        if (! $date instanceof \Zend_Date) {
+            throw new \Exception('invalid date');
         }
 
         if (null === $format) {
