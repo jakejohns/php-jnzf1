@@ -78,7 +78,7 @@ class DatePattern extends \Zend_View_Helper_HtmlElement
             $format = $this->defaultFormat;
         }
 
-        $attribs['title'] = $date->toString(Zend_Date::ATOM);
+        $attribs['title'] = $date->toString(\Zend_Date::ATOM);
 
         return '<abbr '
             . $this->_htmlAttribs($attribs)
