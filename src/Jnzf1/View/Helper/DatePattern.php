@@ -41,7 +41,7 @@ namespace Jnzf1\View\Helper;
  *
  * @see      Zend_View_Helper_HtmlElement
  */
-class DatePattern extends Zend_View_Helper_HtmlElement
+class DatePattern extends \Zend_View_Helper_HtmlElement
 {
 
     /**
