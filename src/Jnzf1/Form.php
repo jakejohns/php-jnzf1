@@ -212,7 +212,7 @@ class Form extends \Twitter_Bootstrap_Form_Horizontal
         $view = $this->getView();
         $view->jQuery()
             ->addJavascriptFile(
-                'http://code.jquery.com/jquery-migrate-1.2.1.min.js'
+                '//code.jquery.com/jquery-migrate-1.2.1.min.js'
             )
             ->addJavascriptFile(
                 '/js/vendor/wysiwyg/elrte/js/elrte.min.js'
